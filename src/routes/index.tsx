@@ -168,9 +168,6 @@ function Game() {
                 <p className="rounded-2xl bg-secondary/70 p-3 text-xs leading-6">
                   «{d.signature_lines["greeting"]}»
                 </p>
-                <p className="text-[11px] text-muted-foreground">
-                  حساسية التناقض ×{d.contradiction_sensitivity} · معامل الشك ×{d.suspicion_multiplier}
-                </p>
               </div>
             </div>
           ))}
