@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 
+const AD_SCRIPT_URL =
+  "https://pl30949910.effectivecpmnetwork.com/086266f00be5b2e02b4068a031be6966/invoke.js";
+
 /** فحص مزدوج: عنصر طُعم + طلب سكربت إعلانات. لا نعتبره حجبًا إلا إذا فشل الاثنان،
  *  حتى لا يظهر التحذير بالخطأ داخل متصفح فيسبوك أو عند بطء الشبكة. */
 async function detectAdblock(): Promise<boolean> {
@@ -15,7 +18,7 @@ async function detectAdblock(): Promise<boolean> {
 
   let scriptBlocked = false;
   try {
-    await fetch("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", {
+    await fetch(AD_SCRIPT_URL, {
       method: "HEAD",
       mode: "no-cors",
       cache: "no-store",

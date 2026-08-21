@@ -1,45 +1,26 @@
 import { useEffect, useRef } from "react";
 
-const CLIENT = import.meta.env["VITE_ADSENSE_CLIENT"] as string | undefined;
-const SLOT = import.meta.env["VITE_ADSENSE_SLOT"] as string | undefined;
+const SCRIPT_URL =
+  "https://pl30949910.effectivecpmnetwork.com/086266f00be5b2e02b4068a031be6966/invoke.js";
+const CONTAINER_ID = "container-086266f00be5b2e02b4068a031be6966";
 
 /** مساحة إعلانية ثابتة أعلى كل صفحة */
 export function AdBanner() {
-  const ref = useRef<HTMLModElement>(null);
-  const pushed = useRef(false);
+  const injected = useRef(false);
 
   useEffect(() => {
-    if (!CLIENT || pushed.current) return;
-    pushed.current = true;
+    if (injected.current) return;
+    injected.current = true;
 
-    const id = "adsbygoogle-js";
+    const id = "effectivecpm-js";
     if (!document.getElementById(id)) {
       const s = document.createElement("script");
       s.id = id;
       s.async = true;
-      s.crossOrigin = "anonymous";
-      s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${CLIENT}`;
+      s.setAttribute("data-cfasync", "false");
+      s.src = SCRIPT_URL;
       document.head.appendChild(s);
     }
-
-    // متصفحات فيسبوك/إنستغرام الداخلية تحمّل السكربت متأخرًا، لذا نعيد المحاولة
-    let tries = 0;
-    const timer = window.setInterval(() => {
-      tries += 1;
-      const w = window as unknown as { adsbygoogle?: unknown[] };
-      if (w.adsbygoogle) {
-        try {
-          w.adsbygoogle.push({});
-        } catch {
-          /* تجاهل */
-        }
-        window.clearInterval(timer);
-      } else if (tries > 20) {
-        window.clearInterval(timer);
-      }
-    }, 400);
-
-    return () => window.clearInterval(timer);
   }, []);
 
   return (
@@ -48,21 +29,7 @@ export function AdBanner() {
         <p className="mb-1 text-center text-[10px] font-bold tracking-widest text-muted-foreground">
           مساحة إعلانية
         </p>
-        {CLIENT ? (
-          <ins
-            ref={ref}
-            className="adsbygoogle block min-h-[90px] w-full"
-            style={{ display: "block" }}
-            data-ad-client={CLIENT}
-            data-ad-slot={SLOT}
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          />
-        ) : (
-          <div className="flex min-h-[90px] w-full items-center justify-center rounded-2xl border border-dashed border-border bg-card/60 text-xs font-bold text-muted-foreground">
-            مساحة إعلانية 728×90
-          </div>
-        )}
+        <div id={CONTAINER_ID} className="min-h-[90px] w-full" />
       </div>
     </div>
   );
