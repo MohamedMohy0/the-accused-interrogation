@@ -16,16 +16,22 @@ async function detectAdblock(): Promise<boolean> {
     bait.offsetHeight === 0 || style.display === "none" || style.visibility === "hidden";
   bait.remove();
 
-  let scriptBlocked = false;
-  try {
-    await fetch(AD_SCRIPT_URL, {
-      method: "HEAD",
-      mode: "no-cors",
-      cache: "no-store",
-    });
-  } catch {
-    scriptBlocked = true;
-  }
+  // فحص ثانٍ: محاولة تحميل سكربت الإعلانات فعليًا (المانع يوقف التحميل)
+  const scriptBlocked = await new Promise<boolean>((resolve) => {
+    const s = document.createElement("script");
+    s.async = true;
+    s.setAttribute("data-cfasync", "false");
+    s.src = `${AD_SCRIPT_URL}?probe=${Date.now()}`;
+    const done = (v: boolean) => {
+      window.clearTimeout(timer);
+      s.remove();
+      resolve(v);
+    };
+    const timer = window.setTimeout(() => done(false), 4000);
+    s.onload = () => done(false);
+    s.onerror = () => done(true);
+    document.head.appendChild(s);
+  });
 
   return baitBlocked && scriptBlocked;
 }
