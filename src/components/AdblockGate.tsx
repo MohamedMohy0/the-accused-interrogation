@@ -5,15 +5,21 @@ const AD_SCRIPT_URL =
 
 async function detectAdblock(): Promise<boolean> {
   // الفحص الأول: عنصر طُعم (Bait Element)
+  // طريقة دقيقة ومباشرة لا تتأثر ببطء الشبكة
   const bait = document.createElement("div");
   bait.className = "adsbox ad-banner ad-placement pub_300x250 text-ad";
-  bait.style.cssText = "position:absolute;left:-9999px;top:-9999px;height:60px;width:300px;";
+  bait.style.cssText =
+    "position:absolute;left:-9999px;top:-9999px;height:60px;width:300px;";
   document.body.appendChild(bait);
+  
   await new Promise((r) => window.setTimeout(r, 100));
   const style = window.getComputedStyle(bait);
   const baitBlocked =
     bait.offsetHeight === 0 || style.display === "none" || style.visibility === "hidden";
   bait.remove();
+
+  // إذا تم كشف الحظر عن طريق الـ Bait، لا داعي لانتظار الشبكة
+  if (baitBlocked) return true;
 
   // الفحص الثاني: محاولة تحميل سكربت الإعلانات
   const scriptBlocked = await new Promise<boolean>((resolve) => {
@@ -21,22 +27,23 @@ async function detectAdblock(): Promise<boolean> {
     s.async = true;
     s.setAttribute("data-cfasync", "false");
     s.src = `${AD_SCRIPT_URL}?probe=${Date.now()}`;
-    
+
     const done = (v: boolean) => {
       window.clearTimeout(timer);
       s.remove();
       resolve(v);
     };
-    
-    // إذا لم يتحمل السكربت خلال 2.5 ثانية نعتبره محجوبًا
-    const timer = window.setTimeout(() => done(true), 2500); 
+
+    // رفع المهلة إلى 5 ثوانٍ لاستيعاب بطء شبكات المحمول (4G/5G)
+    // إذا انتهت المهلة نعتبره غير محجوب لتجنب حظر زوار 4G/5G بالخطأ (false)
+    const timer = window.setTimeout(() => done(false), 5000);
+
     s.onload = () => done(false);
-    s.onerror = () => done(true);
+    s.onerror = () => done(true); // يفشل فوراً عند وجود حظر DNS أو مانع إعلانات صريح
     document.head.appendChild(s);
   });
 
-  // حظر المستخدم إذا فشل أي من الفحصين (|| بدلاً من &&)
-  return baitBlocked || scriptBlocked;
+  return scriptBlocked;
 }
 
 export function AdblockGate({ children }: { children: React.ReactNode }) {
@@ -50,7 +57,8 @@ export function AdblockGate({ children }: { children: React.ReactNode }) {
         setBlocked(isBlocked);
       })
       .catch(() => {
-        setBlocked(true); // في حال حدوث أي خطأ نعتبره محجوبًا للأمان
+        // في حال حدوث خطأ أثناء الفحص نتيح الدخول بدلاً من الحظر الخاطئ
+        setBlocked(false);
       })
       .finally(() => setChecking(false));
   }, []);
@@ -68,7 +76,7 @@ export function AdblockGate({ children }: { children: React.ReactNode }) {
     );
   }
 
-  // إذا تم اكتشاف مانع الإعلانات (يمنع عرض children تمامًا)
+  // إذا تم اكتشاف مانع الإعلانات
   if (blocked) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -90,6 +98,5 @@ export function AdblockGate({ children }: { children: React.ReactNode }) {
     );
   }
 
-  // السماح باللعب فقط إذا لم يتم اكتشاف أي مانع إعلانات
   return <>{children}</>;
 }
