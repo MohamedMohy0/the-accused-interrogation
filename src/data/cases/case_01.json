@@ -1,0 +1,1226 @@
+{
+  "case_id": "case_01",
+  "case_number": 1,
+  "case_title": "قضية اختفاء المبلغ من الخزنة",
+  "fixed_role": "innocent_suspicious",
+  "detectives": [
+    "ahmed"
+  ],
+  "briefing": "الساعة 9:05 مساءً اختفى مبلغ 240 ألفًا من خزنة شركة «النيل للمقاولات». لا آثار كسر، والباب الأمامي مقفل من الداخل.",
+  "role_card": {
+    "role_name": "أنت بريء… لكن كل الظروف تُدينك",
+    "secret_truth": "كنت في المكتب الساعة 9 مساءً لمقابلة شخص سرّي لا علاقة له بالسرقة إطلاقًا: زوجة المدير، لتحذيرها من صفقة مشبوهة.",
+    "objective": "أثبت براءتك دون كشف سرّك الشخصي",
+    "known_facts": [
+      "كنت هناك فعلًا بين 8:45 و 9:20 مساءً",
+      "رأيت ظلّ شخص آخر يدخل من الباب الخلفي",
+      "بصمتك موجودة على الخزنة من قبل الحادثة بأسبوع",
+      "كريم، محاسب الشركة، طلب منك نسخة مفتاح قبل أسبوعين ورفضتَ",
+      "كاميرا الممر الخلفي معطّلة منذ ثلاثة أيام"
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "detective": "ahmed",
+      "text": "أهلًا بك. خذ نفسًا عميقًا. بدايةً، أين كنت مساء أمس بين الثامنة والعاشرة؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "كنت في المكتب، عندي أوراق متأخرة.",
+          "tags": [
+            "location:office"
+          ],
+          "suspicion": 8,
+          "reply": "طيب، جميل أنك صريح. المكتب إذًا.",
+          "next": "q2"
+        },
+        {
+          "id": "b",
+          "text": "كنت في البيت طوال المساء.",
+          "tags": [
+            "location:home",
+            "lie:alibi"
+          ],
+          "suspicion": 4,
+          "reply": "في البيت… حسنًا، سأكتبها.",
+          "next": "q2"
+        },
+        {
+          "id": "c",
+          "text": "مررت على المكتب دقائق فقط ثم خرجت.",
+          "tags": [
+            "location:office",
+            "duration:short"
+          ],
+          "suspicion": 5,
+          "reply": "دقائق فقط، مفهوم.",
+          "next": "q2"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "detective": "ahmed",
+      "text": "وهل كان معك أحد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "كنت وحدي تمامًا.",
+          "tags": [
+            "alone:yes"
+          ],
+          "suspicion": 6,
+          "reply": "وحدك… يعني لا أحد يشهد لك.",
+          "next": "q3"
+        },
+        {
+          "id": "b",
+          "text": "كان هناك شخص، لكنني أفضّل ألا أذكره.",
+          "tags": [
+            "met:someone",
+            "secret:hinted"
+          ],
+          "suspicion": 10,
+          "reply": "تحفّظك مفهوم، لكنه لا يساعدك.",
+          "next": "q3"
+        },
+        {
+          "id": "c",
+          "text": "قابلت شخصًا وسأخبرك من هو.",
+          "tags": [
+            "met:someone",
+            "reveal:secret"
+          ],
+          "suspicion": -12,
+          "reply": "شكرًا لك، هذا يغيّر الكثير.",
+          "next": "q3"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "detective": "ahmed",
+      "text": "متى بالضبط دخلت المبنى؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "حوالي الثامنة والنصف.",
+          "tags": [
+            "time:early"
+          ],
+          "suspicion": 3,
+          "reply": "الثامنة والنصف، مسجّلة.",
+          "next": "q4"
+        },
+        {
+          "id": "b",
+          "text": "قرابة التاسعة إلا ربعًا.",
+          "tags": [
+            "time:845"
+          ],
+          "suspicion": 2,
+          "reply": "قريب من وقت الحادثة… لكن لا بأس.",
+          "next": "q4"
+        },
+        {
+          "id": "c",
+          "text": "لم أدخل المبنى أصلًا.",
+          "tags": [
+            "location:home",
+            "entry:denied"
+          ],
+          "suspicion": 7,
+          "reply": "لم تدخل. طيب.",
+          "next": "q4"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "detective": "ahmed",
+      "text": "الحارس يقول إن بطاقتك سجّلت دخولًا في 8:47. تعليقك؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نعم، هذا صحيح، دخلت في ذلك الوقت.",
+          "tags": [
+            "time:845",
+            "location:office"
+          ],
+          "suspicion": 2,
+          "reply": "جيد أنك تؤكد.",
+          "next": "q5"
+        },
+        {
+          "id": "b",
+          "text": "ربما أحد استعمل بطاقتي.",
+          "tags": [
+            "claim:card_stolen"
+          ],
+          "suspicion": 14,
+          "reply": "همم… بطاقة مسروقة؟ ادّعاء كبير.",
+          "next": "q5"
+        },
+        {
+          "id": "c",
+          "text": "لا أتذكر بصراحة.",
+          "tags": [
+            "memory:vague"
+          ],
+          "suspicion": 9,
+          "reply": "الذاكرة تخون أحيانًا، سأمرّ عليها لاحقًا.",
+          "next": "q5"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "detective": "ahmed",
+      "text": "ماذا كنت تفعل بالتحديد داخل المكتب؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "أراجع عقود المشروع الجنوبي.",
+          "tags": [
+            "task:contracts"
+          ],
+          "suspicion": 3,
+          "reply": "سنطلب سجل الحاسوب للتأكد.",
+          "next": "q6"
+        },
+        {
+          "id": "b",
+          "text": "كنت أنتظر شخصًا.",
+          "tags": [
+            "met:someone",
+            "secret:hinted"
+          ],
+          "suspicion": 8,
+          "reply": "تنتظر شخصًا في مكتب مغلق ليلًا… لن أتجاوز هذه النقطة بسهولة.",
+          "next": "q5b"
+        },
+        {
+          "id": "c",
+          "text": "لا شيء مهم، مجرد جلست قليلًا.",
+          "tags": [
+            "task:none"
+          ],
+          "suspicion": 11,
+          "reply": "تذهب ليلًا لتجلس بلا سبب؟",
+          "next": "q6"
+        }
+      ]
+    },
+    {
+      "id": "q5b",
+      "detective": "ahmed",
+      "text": "ومن هو الشخص الذي كنت تنتظره في ذلك الوقت بالتحديد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "زميل عمل، ولم يحضر في النهاية.",
+          "tags": [
+            "met:someone",
+            "await:colleague"
+          ],
+          "suspicion": 7,
+          "reply": "زميل لم يحضر… سأحتاج اسمه لاحقًا.",
+          "next": "q6"
+        },
+        {
+          "id": "b",
+          "text": "أفضّل ألا أقول، الأمر شخصي بحت.",
+          "tags": [
+            "met:someone",
+            "secret:hinted"
+          ],
+          "suspicion": 10,
+          "reply": "أسجّل رفضك، لكنه يبقى ثقبًا في روايتك.",
+          "next": "q6"
+        },
+        {
+          "id": "c",
+          "text": "زوجة المدير؛ أردت تحذيرها من صفقة مشبوهة.",
+          "tags": [
+            "met:someone",
+            "reveal:secret"
+          ],
+          "suspicion": -12,
+          "reply": "اعتراف ثقيل… لكنه يفسّر توترك منذ دخلت.",
+          "next": "q6"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "detective": "ahmed",
+      "text": "هل سمعت أو رأيت شيئًا غير معتاد؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "رأيت ظلّ شخص يدخل من الباب الخلفي.",
+          "tags": [
+            "saw:shadow"
+          ],
+          "suspicion": -4,
+          "reply": "ظل؟ هذا خيط مهم فعلًا.",
+          "next": "q7"
+        },
+        {
+          "id": "b",
+          "text": "لم أرَ أحدًا إطلاقًا.",
+          "tags": [
+            "saw:nobody"
+          ],
+          "suspicion": 5,
+          "reply": "لا أحد. مكتوب.",
+          "next": "q9"
+        },
+        {
+          "id": "c",
+          "text": "سمعت بابًا يُغلق فقط.",
+          "tags": [
+            "heard:door"
+          ],
+          "suspicion": 0,
+          "reply": "باب يُغلق… من جهة الممر الخلفي على الأرجح. سأدوّنها.",
+          "next": "q7"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "detective": "ahmed",
+      "text": "الباب الخلفي كان مقفلًا حسب التقرير. كيف تفسّر ما رأيت؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "شخص يملك نسخة مفتاح إذًا.",
+          "tags": [
+            "theory:copy_key"
+          ],
+          "suspicion": 2,
+          "reply": "نسخة مفتاح… إذًا شخص من داخل الشركة. سنصل إليه.",
+          "next": "q8"
+        },
+        {
+          "id": "b",
+          "text": "ربما تخيّلت، لست متأكدًا.",
+          "tags": [
+            "saw:nobody",
+            "retract:shadow"
+          ],
+          "suspicion": 12,
+          "reply": "تتراجع بسرعة عن كلامك.",
+          "next": "q8"
+        },
+        {
+          "id": "c",
+          "text": "لا أفسّر، أنا أخبرك بما رأيت فقط.",
+          "tags": [
+            "saw:shadow"
+          ],
+          "suspicion": 1,
+          "reply": "عادل. تكملة.",
+          "next": "q8"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "detective": "ahmed",
+      "text": "هل كان لديك مفتاح الباب الخلفي في أي وقت؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا، لم أملك مفتاحًا أبدًا.",
+          "tags": [
+            "key:no_access"
+          ],
+          "suspicion": 2,
+          "reply": "طيب.",
+          "next": "q9"
+        },
+        {
+          "id": "b",
+          "text": "كان معي مفتاح قديم أعدته للإدارة.",
+          "tags": [
+            "key:had_copy"
+          ],
+          "suspicion": 10,
+          "reply": "أعدته… سأطلب إيصال التسليم من الإدارة.",
+          "next": "q9"
+        },
+        {
+          "id": "c",
+          "text": "لا، لكن كريم طلب مني نسخة ورفضت.",
+          "tags": [
+            "key:no_access",
+            "point:kareem"
+          ],
+          "suspicion": -3,
+          "reply": "كريم طلب نسخة؟ سأدوّن هذا.",
+          "next": "q9"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "detective": "ahmed",
+      "text": "بصماتك على الخزنة. كيف وصلت هناك؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لمستها قبل أسبوع عند تسليم مستندات.",
+          "tags": [
+            "fingerprint:before"
+          ],
+          "suspicion": 3,
+          "reply": "قبل أسبوع، منطقي نوعًا ما.",
+          "next": "q10"
+        },
+        {
+          "id": "b",
+          "text": "مستحيل، لم ألمس الخزنة في حياتي.",
+          "tags": [
+            "fingerprint:never"
+          ],
+          "suspicion": 8,
+          "reply": "أبدًا؟ التقرير يقول غير ذلك.",
+          "next": "q10"
+        },
+        {
+          "id": "c",
+          "text": "لمستها أمس عندما وجدتها مفتوحة.",
+          "tags": [
+            "fingerprint:yesterday",
+            "saw:safe_open"
+          ],
+          "suspicion": 16,
+          "reply": "أمس؟! وعدم إبلاغك عن خزنة مفتوحة يزيد الأمر سوءًا.",
+          "next": "q10"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "detective": "ahmed",
+      "text": "هل تعرف رمز الخزنة؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا، الرمز مع المدير والمحاسب فقط.",
+          "tags": [
+            "code:no"
+          ],
+          "suspicion": 1,
+          "reply": "المحاسب… أي كريم.",
+          "next": "q11"
+        },
+        {
+          "id": "b",
+          "text": "كنت أعرفه سابقًا وتم تغييره.",
+          "tags": [
+            "code:old"
+          ],
+          "suspicion": 9,
+          "reply": "سأراجع تاريخ تغيير الرمز مع المدير.",
+          "next": "q11"
+        },
+        {
+          "id": "c",
+          "text": "أعرفه، نعم.",
+          "tags": [
+            "code:yes"
+          ],
+          "suspicion": 18,
+          "reply": "اعتراف مباشر… شجاع أنت.",
+          "next": "q14"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "detective": "ahmed",
+      "text": "دعنا نرجع خطوة. قلت لي أين كنت الساعة التاسعة تمامًا؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "في مكتبي بالطابق الثاني.",
+          "tags": [
+            "location:office",
+            "floor:2"
+          ],
+          "suspicion": 3,
+          "reply": "الطابق الثاني.",
+          "next": "q12"
+        },
+        {
+          "id": "b",
+          "text": "في البيت أشاهد التلفاز.",
+          "tags": [
+            "location:home"
+          ],
+          "suspicion": 6,
+          "reply": "في البيت… حسنًا.",
+          "next": "q12"
+        },
+        {
+          "id": "c",
+          "text": "في الممر قرب غرفة الخزنة.",
+          "tags": [
+            "location:safe_room"
+          ],
+          "suspicion": 17,
+          "reply": "قرب غرفة الخزنة بالذات… مكتوبة كما قلتها.",
+          "next": "q20"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "detective": "ahmed",
+      "text": "من هو آخر شخص رأيته قبل خروجك؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "الحارس عند البوابة.",
+          "tags": [
+            "saw:guard"
+          ],
+          "suspicion": 2,
+          "reply": "سنسأله.",
+          "next": "q14"
+        },
+        {
+          "id": "b",
+          "text": "كريم، كان يخرج مسرعًا.",
+          "tags": [
+            "point:kareem",
+            "saw:kareem"
+          ],
+          "suspicion": -5,
+          "reply": "كريم مسرعًا؟ نقطة مهمة، سأعود إليها بعد قليل.",
+          "next": "q13"
+        },
+        {
+          "id": "c",
+          "text": "لم أرَ أحدًا.",
+          "tags": [
+            "saw:nobody"
+          ],
+          "suspicion": 6,
+          "reply": "لا أحد مجددًا.",
+          "next": "q14"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "detective": "ahmed",
+      "text": "هل بينك وبين كريم مشكلة شخصية؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "خلاف عمل قديم، لا أكثر.",
+          "tags": [
+            "conflict:mild"
+          ],
+          "suspicion": 3,
+          "reply": "خلاف عمل… طبيعي.",
+          "next": "q14"
+        },
+        {
+          "id": "b",
+          "text": "لا، علاقتنا ممتازة.",
+          "tags": [
+            "conflict:none"
+          ],
+          "suspicion": 5,
+          "reply": "ممتازة؟ سنرى.",
+          "next": "q14"
+        },
+        {
+          "id": "c",
+          "text": "نعم، اتهمني مرة بالتلاعب بالفواتير.",
+          "tags": [
+            "conflict:strong",
+            "point:kareem"
+          ],
+          "suspicion": 7,
+          "reply": "هذا دافع… لكليكما.",
+          "next": "q14"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "detective": "ahmed",
+      "text": "أخبرني عن وضعك المالي، بصراحة.",
+      "options": [
+        {
+          "id": "a",
+          "text": "مستقر، لا ديون تُذكر.",
+          "tags": [
+            "money:stable"
+          ],
+          "suspicion": 2,
+          "reply": "جيد.",
+          "next": "q15"
+        },
+        {
+          "id": "b",
+          "text": "عليّ قرض متأخر منذ شهرين.",
+          "tags": [
+            "money:debt"
+          ],
+          "suspicion": 11,
+          "reply": "قرض متأخر… صراحتك تُحسب لك رغم ذلك.",
+          "next": "q15"
+        },
+        {
+          "id": "c",
+          "text": "هذا شأن خاص لا يخصّ التحقيق.",
+          "tags": [
+            "refuse:answer"
+          ],
+          "suspicion": 9,
+          "reply": "كل شيء يخصّ التحقيق للأسف، لكن لنؤجّلها قليلًا.",
+          "next": "q16"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "detective": "ahmed",
+      "text": "وصل حسابك تحويل بقيمة 15 ألفًا الأسبوع الماضي. مصدره؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "بيع سيارتي القديمة، والعقد موجود.",
+          "tags": [
+            "money:explained"
+          ],
+          "suspicion": -6,
+          "reply": "أحضر العقد وننتهي من هذه النقطة.",
+          "next": "q16"
+        },
+        {
+          "id": "b",
+          "text": "قرض من صديق.",
+          "tags": [
+            "money:loan"
+          ],
+          "suspicion": 7,
+          "reply": "قرض من صديق… لن أكتفي بهذا.",
+          "next": "q15b"
+        },
+        {
+          "id": "c",
+          "text": "لا أعرف من أين جاء.",
+          "tags": [
+            "money:unknown"
+          ],
+          "suspicion": 15,
+          "reply": "مال يدخل حسابك ولا تعرف مصدره؟",
+          "next": "q16"
+        }
+      ]
+    },
+    {
+      "id": "q15b",
+      "detective": "ahmed",
+      "text": "وما اسم هذا الصديق؟ أريد رقمًا أتصل به اليوم.",
+      "options": [
+        {
+          "id": "a",
+          "text": "اسمه سامي، ورقمه معي الآن.",
+          "tags": [
+            "loan:verifiable"
+          ],
+          "suspicion": 1,
+          "reply": "سامي. سنتصل به قبل إغلاق المحضر.",
+          "next": "q16"
+        },
+        {
+          "id": "b",
+          "text": "أفضّل ألا أورّطه في تحقيق.",
+          "tags": [
+            "loan:vague"
+          ],
+          "suspicion": 12,
+          "reply": "حماية صديق… أو صديق غير موجود أصلًا.",
+          "next": "q16"
+        },
+        {
+          "id": "c",
+          "text": "بصراحة ليس قرضًا، بل مستحقات عمل حرّ.",
+          "tags": [
+            "loan:vague",
+            "money:freelance"
+          ],
+          "suspicion": 6,
+          "reply": "روايتان لتحويل واحد. سأدوّن الأخيرة وأتحقق.",
+          "next": "q16"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "detective": "ahmed",
+      "text": "كاميرا الممر الخلفي معطّلة منذ ثلاثة أيام. هل كنت تعلم؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نعم، الجميع في الشركة يعلم.",
+          "tags": [
+            "camera:knew"
+          ],
+          "suspicion": 8,
+          "reply": "الجميع… أو أنت تحديدًا.",
+          "next": "q17"
+        },
+        {
+          "id": "b",
+          "text": "لا، أعرف الآن منك.",
+          "tags": [
+            "camera:unknown"
+          ],
+          "suspicion": 3,
+          "reply": "طيب.",
+          "next": "q17"
+        },
+        {
+          "id": "c",
+          "text": "أنا من أبلغ الصيانة عنها.",
+          "tags": [
+            "camera:reported"
+          ],
+          "suspicion": -7,
+          "reply": "بلاغك مسجّل فعلًا؟ سأتحقق، وهذا في صالحك.",
+          "next": "q17"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "detective": "ahmed",
+      "text": "الحارس يقول إنك خرجت 9:22 وأنت متوتر وتحمل حقيبة.",
+      "options": [
+        {
+          "id": "a",
+          "text": "الحقيبة فيها أوراقي فقط، وهي معي الآن.",
+          "tags": [
+            "bag:papers"
+          ],
+          "suspicion": -4,
+          "reply": "افتحها لاحقًا أمام الزميل، بلا مشكلة.",
+          "next": "q19"
+        },
+        {
+          "id": "b",
+          "text": "لم أكن أحمل حقيبة.",
+          "tags": [
+            "bag:denied"
+          ],
+          "suspicion": 13,
+          "reply": "الحارس متأكد جدًا…",
+          "next": "q19"
+        },
+        {
+          "id": "c",
+          "text": "كنت متوترًا لأسباب شخصية.",
+          "tags": [
+            "stress:personal",
+            "secret:hinted"
+          ],
+          "suspicion": 6,
+          "reply": "أسباب شخصية دائمًا.",
+          "next": "q18"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "detective": "ahmed",
+      "text": "هاتفك كان مغلقًا بين 8:50 و 9:15. لماذا؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "البطارية نفدت.",
+          "tags": [
+            "phone:battery"
+          ],
+          "suspicion": 6,
+          "reply": "بطارية… شائع جدًا هذا العذر.",
+          "next": "q19"
+        },
+        {
+          "id": "b",
+          "text": "أغلقته عمدًا لأن اللقاء كان خاصًا.",
+          "tags": [
+            "phone:off_intent",
+            "secret:hinted"
+          ],
+          "suspicion": 9,
+          "reply": "لقاء خاص… ندور في حلقة.",
+          "next": "q19"
+        },
+        {
+          "id": "c",
+          "text": "أغلقته لأنني كنت أقابل زوجة المدير لتحذيرها من صفقة.",
+          "tags": [
+            "reveal:secret"
+          ],
+          "suspicion": -18,
+          "reply": "أخيرًا فهمت. هذا يفسّر كل التوتر.",
+          "next": "q19"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "detective": "ahmed",
+      "text": "لو كنت مكاني، من ستشكّ فيه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "كريم، هو الوحيد الذي يملك الرمز ومفتاحًا.",
+          "tags": [
+            "accuse:kareem",
+            "point:kareem"
+          ],
+          "suspicion": -6,
+          "reply": "منطق سليم، سأستدعيه.",
+          "next": "q20"
+        },
+        {
+          "id": "b",
+          "text": "لا أتهم أحدًا بلا دليل.",
+          "tags": [
+            "accuse:none"
+          ],
+          "suspicion": 2,
+          "reply": "أخلاق جيدة، لكن لا تساعدني.",
+          "next": "q21"
+        },
+        {
+          "id": "c",
+          "text": "الحارس نفسه ربما.",
+          "tags": [
+            "accuse:guard"
+          ],
+          "suspicion": 9,
+          "reply": "الحارس كان أمام الكاميرا طوال الوقت.",
+          "next": "q21"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "detective": "ahmed",
+      "text": "كريم يقول إنه رآك تقف أمام الخزنة. ماذا تقول؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لم أقترب من غرفة الخزنة إطلاقًا.",
+          "tags": [
+            "safe:never_near"
+          ],
+          "suspicion": 4,
+          "reply": "كلمتك ضد كلمته.",
+          "next": "q21"
+        },
+        {
+          "id": "b",
+          "text": "مررت من أمام الغرفة فقط دون دخول.",
+          "tags": [
+            "safe:passed"
+          ],
+          "suspicion": 7,
+          "reply": "مررت… مقبول.",
+          "next": "q21"
+        },
+        {
+          "id": "c",
+          "text": "كريم يكذب، وهو نفسه من كان هناك.",
+          "tags": [
+            "accuse:kareem",
+            "point:kareem"
+          ],
+          "suspicion": 5,
+          "reply": "اتهام مضاد. سنواجهه به.",
+          "next": "q21"
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "detective": "ahmed",
+      "text": "هل أنت مستعد لتسليم هاتفك للفحص؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نعم، خذه الآن.",
+          "tags": [
+            "cooperate:phone"
+          ],
+          "suspicion": -9,
+          "reply": "تعاونك يريحني كثيرًا.",
+          "next": "q22"
+        },
+        {
+          "id": "b",
+          "text": "نعم، لكن بعد إذن محامي.",
+          "tags": [
+            "cooperate:partial"
+          ],
+          "suspicion": 4,
+          "reply": "حقك القانوني، لا بأس.",
+          "next": "q22"
+        },
+        {
+          "id": "c",
+          "text": "لا، فيه أمور خاصة.",
+          "tags": [
+            "refuse:phone",
+            "secret:hinted"
+          ],
+          "suspicion": 12,
+          "reply": "أمور خاصة… مرة أخرى.",
+          "next": "q22"
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "detective": "ahmed",
+      "text": "لو ظهر تسجيل يثبت وجودك قرب الخزنة، ماذا ستقول حينها؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "سأقول الحقيقة كاملة كما قلتها الآن.",
+          "tags": [
+            "stance:firm"
+          ],
+          "suspicion": -5,
+          "reply": "ثباتك ملحوظ.",
+          "next": "q23"
+        },
+        {
+          "id": "b",
+          "text": "ربما نسيت، الوقت متأخر وكنت مرهقًا.",
+          "tags": [
+            "memory:vague"
+          ],
+          "suspicion": 10,
+          "reply": "النسيان لا يفيدك هنا.",
+          "next": "q23"
+        },
+        {
+          "id": "c",
+          "text": "لن أعلّق على شيء افتراضي.",
+          "tags": [
+            "refuse:answer"
+          ],
+          "suspicion": 6,
+          "reply": "حسنًا، ننتقل.",
+          "next": "q23"
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "detective": "ahmed",
+      "text": "لماذا لم تتصل بالشرطة إن رأيت شخصًا يدخل ليلًا؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "ظننته أحد الموظفين.",
+          "tags": [
+            "reason:employee"
+          ],
+          "suspicion": 3,
+          "reply": "معقول.",
+          "next": "q24"
+        },
+        {
+          "id": "b",
+          "text": "كنت خائفًا أن يُسأل عن سبب وجودي.",
+          "tags": [
+            "fear:presence",
+            "secret:hinted"
+          ],
+          "suspicion": 7,
+          "reply": "خوفك هذا يزيد الشبهة، تعلم ذلك؟",
+          "next": "q24"
+        },
+        {
+          "id": "c",
+          "text": "لم أرَ أحدًا أصلًا.",
+          "tags": [
+            "saw:nobody"
+          ],
+          "suspicion": 9,
+          "reply": "روايتك تتغيّر…",
+          "next": "q24"
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "detective": "ahmed",
+      "text": "أعطني سببًا واحدًا يجعلني أصدّقك.",
+      "options": [
+        {
+          "id": "a",
+          "text": "لأنني لم أغيّر روايتي منذ دخلت هذه الغرفة.",
+          "tags": [
+            "stance:firm"
+          ],
+          "suspicion": -8,
+          "reply": "هذه نقطة قوية بصراحة.",
+          "next": "q25"
+        },
+        {
+          "id": "b",
+          "text": "لأن الأدلة كلها ظرفية.",
+          "tags": [
+            "stance:legal"
+          ],
+          "suspicion": 2,
+          "reply": "كلام محامٍ.",
+          "next": "q25"
+        },
+        {
+          "id": "c",
+          "text": "لأنني أخبرتك بسرّي رغم ثمنه.",
+          "tags": [
+            "stance:secret"
+          ],
+          "suspicion": -6,
+          "requires": [
+            "reveal:secret"
+          ],
+          "reply": "نعم، وهذا ما رجّح كفّتك.",
+          "next": "q25"
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "detective": "ahmed",
+      "text": "آخر سؤال تقريبًا: هل تريد إضافة شيء قبل أن أغلق المحضر؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نعم، أطلب فحص سجل دخول كريم في تلك الليلة.",
+          "tags": [
+            "request:kareem_log",
+            "point:kareem"
+          ],
+          "suspicion": -10,
+          "reply": "طلب ذكي. سأفعل الآن.",
+          "next": "q26"
+        },
+        {
+          "id": "b",
+          "text": "لا، انتهيت.",
+          "tags": [
+            "closing:none"
+          ],
+          "suspicion": 2,
+          "reply": "كما تشاء.",
+          "next": "q26"
+        },
+        {
+          "id": "c",
+          "text": "أعتذر، أخطأت في بعض التفاصيل من التوتر.",
+          "tags": [
+            "admit:confusion"
+          ],
+          "suspicion": 8,
+          "reply": "التوتر يفسّر شيئًا… لا كل شيء.",
+          "next": "q26"
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "detective": "ahmed",
+      "text": "قبل أن نفترق: هل تقسم أن كل ما قلته صحيح؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "أقسم، كل حرف.",
+          "tags": [
+            "oath:yes"
+          ],
+          "suspicion": -4,
+          "reply": "مسجّل.",
+          "next": "END"
+        },
+        {
+          "id": "b",
+          "text": "أقسم على كل شيء عدا سببي الشخصي للوجود هناك.",
+          "tags": [
+            "oath:partial",
+            "secret:hinted"
+          ],
+          "suspicion": 3,
+          "reply": "صراحة نصفية… لكنها صراحة.",
+          "next": "END"
+        },
+        {
+          "id": "c",
+          "text": "أفضّل ألا أقسم.",
+          "tags": [
+            "oath:no"
+          ],
+          "suspicion": 12,
+          "reply": "غريب أن ترفض القسم وأنت بريء.",
+          "next": "END"
+        }
+      ]
+    }
+  ],
+  "contradiction_rules": [
+    {
+      "tag_conflict": [
+        "location:home",
+        "location:office"
+      ],
+      "confrontation_line": "لحظة… قلت لي إنك كنت في البيت، والآن تقول المكتب. أيّهما أكتب؟",
+      "suspicion_change": 22
+    },
+    {
+      "tag_conflict": [
+        "alone:yes",
+        "met:someone"
+      ],
+      "confrontation_line": "قبل قليل قلت إنك كنت وحدك تمامًا، والآن يظهر شخص آخر في الرواية!",
+      "suspicion_change": 20
+    },
+    {
+      "tag_conflict": [
+        "saw:nobody",
+        "saw:shadow"
+      ],
+      "confrontation_line": "مرة رأيت ظلًّا يدخل ومرة لم ترَ أحدًا. أحد الجوابين غير صحيح بالتأكيد.",
+      "suspicion_change": 18
+    },
+    {
+      "tag_conflict": [
+        "fingerprint:never",
+        "fingerprint:before"
+      ],
+      "confrontation_line": "قلت إنك لم تلمس الخزنة أبدًا، ثم قلت إنك لمستها قبل أسبوع. أيّهما؟",
+      "suspicion_change": 24
+    },
+    {
+      "tag_conflict": [
+        "key:no_access",
+        "key:had_copy"
+      ],
+      "confrontation_line": "لا مفتاح لديك… ثم مفتاح قديم أعدته. المفاتيح لا تظهر وتختفي هكذا.",
+      "suspicion_change": 21
+    },
+    {
+      "tag_conflict": [
+        "entry:denied",
+        "time:845"
+      ],
+      "confrontation_line": "قلت إنك لم تدخل المبنى، والآن تؤكد وقت دخولك. ما هذا التناقض؟",
+      "suspicion_change": 23
+    },
+    {
+      "tag_conflict": [
+        "bag:denied",
+        "bag:papers"
+      ],
+      "confrontation_line": "حقيبة لا وجود لها ثم حقيبة فيها أوراقك. ركّز معي رجاءً.",
+      "suspicion_change": 17
+    },
+    {
+      "tag_conflict": [
+        "conflict:none",
+        "conflict:strong"
+      ],
+      "confrontation_line": "علاقتك بكريم ممتازة… لكنه اتهمك سابقًا؟ هذا ليس «ممتازًا».",
+      "suspicion_change": 15
+    },
+    {
+      "tag_conflict": [
+        "loan:verifiable",
+        "loan:vague"
+      ],
+      "confrontation_line": "مرة قرض من صديق باسم ورقم، ومرة لا صديق أصلًا. أيّهما أثبت في المحضر؟",
+      "suspicion_change": 16
+    }
+  ],
+  "endings": [
+    {
+      "ending_id": "clean_innocent",
+      "condition": {
+        "suspicion_max": 35,
+        "contradictions_max": 0,
+        "secret_revealed": false
+      },
+      "title": "خرجتَ نظيفًا",
+      "stamp": "أُغلق الملف",
+      "text": "أحمد يقف ويصافحك: «آسف على الوقت. روايتك لم تتزحزح لحظة.» خرجت بريئًا، وسرّك بقي معك وحدك. بعد أسبوعين تعرف من الجريدة أن كريم اعترف… ولم يعرف أحد لماذا كنت هناك."
+    },
+    {
+      "ending_id": "hero_witness",
+      "condition": {
+        "suspicion_max": 45,
+        "contradictions_max": 1,
+        "required_tags": [
+          "point:kareem",
+          "request:kareem_log"
+        ]
+      },
+      "title": "الشاهد الذي أنقذ القضية",
+      "stamp": "شاهد رئيسي",
+      "text": "سجل الدخول أثبت وجود كريم في 9:03. تحوّلت من متهم إلى شاهد رئيسي، وطلب منك أحمد أن تشهد في المحكمة. الثمن الوحيد: اسمك صار مرتبطًا بالقضية في كل صحيفة."
+    },
+    {
+      "ending_id": "truth_costly",
+      "condition": {
+        "suspicion_max": 55,
+        "secret_revealed": true
+      },
+      "title": "الحقيقة… بثمن",
+      "stamp": "بريء",
+      "text": "كشفتَ سرّك فسقطت التهمة عنك في دقائق. لكن اسم زوجة المدير دخل المحضر، والصفقة المشبوهة انفجرت في وجه الجميع. أنت بريء، ولم تعد ترى وجهًا صديقًا في تلك الشركة."
+    },
+    {
+      "ending_id": "suspended_doubt",
+      "condition": {
+        "suspicion_max": 70
+      },
+      "title": "بريء… على الورق",
+      "stamp": "قيد المتابعة",
+      "text": "لا دليل قاطع ضدك، لكن أحمد يغلق دفتره ببطء: «لن أعتقلك اليوم.» تخرج وأنت تحت المراقبة، والقضية معلّقة فوق رأسك كسقف واطئ."
+    },
+    {
+      "ending_id": "tangled",
+      "condition": {
+        "suspicion_max": 88
+      },
+      "title": "غرقت في تفاصيلك",
+      "stamp": "توقيف احترازي",
+      "text": "تناقضاتك جعلت حتى أحمد المتساهل يرفع الهاتف. «سنبقيك 48 ساعة حتى تتضح الرواية.» الفاعل الحقيقي يقرأ الخبر ويبتسم في مكان ما."
+    },
+    {
+      "ending_id": "false_confession",
+      "condition": {
+        "suspicion_max": 200
+      },
+      "title": "اعتراف لم يحدث",
+      "stamp": "أُحيل للنيابة",
+      "text": "انهارت روايتك تمامًا، والمحضر يقول إنك آخر من لمس الخزنة وأعرف من عرف الرمز. أُحلت للنيابة عن جريمة لم ترتكبها، وسرّك بقي سرًّا… بلا فائدة."
+    }
+  ]
+}

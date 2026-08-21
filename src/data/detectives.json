@@ -1,0 +1,47 @@
+{
+  "ahmed": {
+    "detective_id": "ahmed",
+    "name": "المحقق أحمد",
+    "difficulty": "easy",
+    "rank": "ملازم تحقيق",
+    "personality_tone": "متساهل وودود",
+    "contradiction_sensitivity": 0.5,
+    "suspicion_multiplier": 0.7,
+    "signature_lines": {
+      "greeting": "تفضّل اجلس، براحتك. بس كم سؤال بسيط وننهي الموضوع.",
+      "on_contradiction": "أممم… بس أنت قلت شيئًا مختلفًا قبل قليل. ممكن توضّح لي؟",
+      "on_high_suspicion": "أنا أحاول أساعدك بصراحة، لكن كلامك بدأ يتشابك عليّ.",
+      "on_confession": "خلاص، أنا صدّقتك من البداية بصراحة."
+    }
+  },
+  "sara": {
+    "detective_id": "sara",
+    "name": "المحقّقة سارة",
+    "difficulty": "medium",
+    "rank": "نقيب تحقيقات",
+    "personality_tone": "منطقية ومتوازنة",
+    "contradiction_sensitivity": 1,
+    "suspicion_multiplier": 1,
+    "signature_lines": {
+      "greeting": "لن أطيل عليك. أسئلتي مرتّبة، وأنا أستمع جيدًا.",
+      "on_contradiction": "دقيقة. هذا لا يتوافق مع ما سجّلته عنك قبل قليل.",
+      "on_high_suspicion": "الملف أمامي يزداد ثقلًا، وأنت من يضيف إليه.",
+      "on_confession": "شكرًا لصراحتك. هذا يوفّر علينا وقتًا كثيرًا."
+    }
+  },
+  "omar": {
+    "detective_id": "omar",
+    "name": "المحقق عمر",
+    "difficulty": "hard",
+    "rank": "رائد مباحث",
+    "personality_tone": "حادّ الملاحظة، ضغط نفسي",
+    "contradiction_sensitivity": 1.5,
+    "suspicion_multiplier": 1.5,
+    "signature_lines": {
+      "greeting": "اجلس. أنا أحفظ كل كلمة تقولها، فاختر كلماتك بعناية.",
+      "on_contradiction": "توقّف. قبل ثلاث دقائق قلت العكس تمامًا. أيّ الروايتين أكتبها في المحضر؟",
+      "on_high_suspicion": "أنت الآن تكذب لتغطّي كذبة سابقة. هذه أسوأ طريقة للخروج من هنا.",
+      "on_confession": "أخيرًا. كنت أنتظر هذه الجملة منذ البداية."
+    }
+  }
+}
