@@ -25,11 +25,11 @@ export function AdBanner() {
 
   return (
     <div className="w-full border-b border-border/60 bg-secondary/40">
-      <div className="mx-auto w-full max-w-5xl px-3 py-2">
-        <p className="mb-1 text-center text-[10px] font-bold tracking-widest text-muted-foreground">
+      <div className="mx-auto w-full max-w-5xl px-2 py-1">
+        <p className="mb-0.5 text-center text-[9px] font-bold tracking-widest text-muted-foreground">
           مساحة إعلانية
         </p>
-        <div id={CONTAINER_ID} className="min-h-[90px] w-full" />
+        <div id={CONTAINER_ID} className="min-h-[50px] w-full" />
       </div>
     </div>
   );
