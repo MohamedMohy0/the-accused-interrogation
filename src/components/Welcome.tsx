@@ -38,7 +38,6 @@ export function Welcome({ onEnter }: { onEnter: () => void }) {
         <span className="mt-2 rounded-2xl bg-primary px-8 py-4 text-lg font-extrabold text-primary-foreground shadow-[var(--shadow-card)]">
           اضغط للدخول
         </span>
-        <span className="text-xs font-bold text-muted-foreground">الصوت يعمل بعد الدخول</span>
       </div>
     </button>
   );

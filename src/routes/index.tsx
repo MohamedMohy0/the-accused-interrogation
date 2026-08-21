@@ -150,6 +150,7 @@ function Game() {
               <div className="space-y-2 p-4">
                 <p className="text-lg font-extrabold">{d.name}</p>
                 <p className="text-xs text-muted-foreground">{d.rank} · {d.personality_tone}</p>
+                <p className="text-xs font-bold text-gold">نسب الشك {Math.round(d.suspicion_multiplier * 100)}%</p>
                 <span
                   className="inline-block rounded-full px-2.5 py-1 text-[11px] font-extrabold"
                   style={{
