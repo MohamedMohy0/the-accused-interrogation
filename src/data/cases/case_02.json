@@ -1,0 +1,2280 @@
+{
+  "case_id": "case_02",
+  "case_number": 2,
+  "case_title": "قضية السقوط الأخير",
+  "fixed_role": "accidental_killer",
+  "detectives": [
+    "omar"
+  ],
+  "briefing": "الساعة 11:47 مساءً عُثر على رجل يُدعى مازن عبدالسلام ميتًا أسفل درج الطابق الثالث في مبنى إداري قديم. لا توجد آثار اقتحام، ولا يبدو أن الضحية كان يتوقع وجود أحد معه في المبنى. آخر تسجيل لكاميرا الممر يظهر مازن يدخل المبنى الساعة 11:18، ثم يظهر شخص يشبهك في الخلفية بعد سبع دقائق. بعد ذلك بدقائق انقطعت الكاميرا.",
+  "role_card": {
+    "role_name": "أنت الفاعل… لكنك لم تقصد قتله",
+    "secret_truth": "كنت في المبنى ليلًا لمواجهة مازن بشأن أمر شخصي. تصاعد النقاش بينكما في الطابق الثالث. دفعك مازن أولًا، فرددت دفعه دون أن تقصد إيذاءه. تراجع مازن خطوة، اصطدمت قدمه بحافة الدرجة، وسقط على الدرج. تجمدت في مكانك، وعندما وصلت إليه كان قد فارق الحياة. بدلًا من طلب الإسعاف فورًا، خفت وهربت من المكان.",
+    "objective": "إخفاء حقيقة ما حدث قدر الإمكان، أو الوصول إلى طريقة للاعتراف بما فعلت دون أن تجعل الأمر يبدو كقتل متعمد.",
+    "known_facts": [
+      "كنت موجودًا في المبنى وقت الحادث.",
+      "قابلت مازن قبل سقوطه بدقائق.",
+      "حدث شجار بينكما في الطابق الثالث.",
+      "دفعت مازن أثناء الشجار.",
+      "لم تكن تريد قتله.",
+      "بعد سقوطه لم تتصل بالشرطة أو الإسعاف.",
+      "غادرت المبنى قبل وصول أي شخص.",
+      "هاتفك كان في وضع الطيران أثناء جزء من الفترة.",
+      "على كم قميصك أثر تمزق صغير.",
+      "هناك تسجيل كاميرا ناقص من الممر.",
+      "مازن كان يحمل هاتفًا قبل وفاته.",
+      "أنت تعرف أن وجودك في المبنى سيظهر عاجلًا أم آجلًا."
+    ],
+    "secret": {
+      "secret_id": "left_without_calling_help",
+      "title": "السر الذي أخفيته عن عمر",
+      "truth": "بعد أن سقط مازن وتأكدت أنه في حالة خطيرة، لم تطلب الإسعاف أو الشرطة فورًا. بقيت لحظات بجانبه، ثم غادرت المبنى خوفًا من أن تُتهم بقتله.",
+      "revealed": false,
+      "reveal_levels": {
+        "0": "عمر لا يعرف أنك بقيت بجانب مازن بعد السقوط.",
+        "1": "عمر يعرف أنك اقتربت منه بعد السقوط.",
+        "2": "عمر يعرف أنك تأكدت من حالته.",
+        "3": "عمر يعرف أنك لم تطلب المساعدة فورًا.",
+        "4": "عمر يعرف أنك غادرت المكان رغم معرفتك بخطورة حالته."
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "detective": "omar",
+      "text": "اجلس. قبل أن نبدأ، أريد إجابة بسيطة: لماذا كنت في المبنى الليلة الماضية؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "كنت أمر من هناك فقط.",
+          "tags": [
+            "purpose:vague",
+            "lie:minor"
+          ],
+          "suspicion": 10,
+          "reply": "تمر من مبنى مغلق ليلًا؟ بداية غير موفقة.",
+          "next": "q2",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "كنت أريد مقابلة مازن.",
+          "tags": [
+            "purpose:meeting",
+            "met:mazen"
+          ],
+          "suspicion": 6,
+          "reply": "إذًا أنت تعرفه. جيد. لنبدأ من هنا.",
+          "next": "q2",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا أريد الحديث عن سبب وجودي.",
+          "tags": [
+            "refuse:purpose"
+          ],
+          "suspicion": 14,
+          "reply": "ليس عندي مشكلة مع الصمت. عندي مشكلة مع الأشياء التي يأتي وقتها بعد فوات الأوان.",
+          "next": "q2",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "detective": "omar",
+      "text": "متى دخلت المبنى؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "قبل الحادية عشرة بقليل.",
+          "tags": [
+            "time:early"
+          ],
+          "suspicion": 4,
+          "reply": "وقت تقريبي. سأجعله أكثر دقة لاحقًا.",
+          "next": "q3",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "حوالي 11:20.",
+          "tags": [
+            "time:1120",
+            "location:building"
+          ],
+          "suspicion": 2,
+          "reply": "11:20. قريب جدًا من وقت الوفاة.",
+          "next": "q3",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا أتذكر.",
+          "tags": [
+            "time:vague"
+          ],
+          "suspicion": 9,
+          "reply": "غريب أن تنسى متى دخلت مكانًا وأنت تعرف أنك كنت فيه.",
+          "next": "q3",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "detective": "omar",
+      "text": "هل كنت وحدك؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نعم.",
+          "tags": [
+            "alone:yes"
+          ],
+          "suspicion": 7,
+          "reply": "وحدك. هذا يعني أن روايتك ستكون المصدر الوحيد.",
+          "next": "q4",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "كنت أقابل مازن.",
+          "tags": [
+            "alone:no",
+            "met:mazen"
+          ],
+          "suspicion": 3,
+          "reply": "أخيرًا شيء واضح.",
+          "next": "q4",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "ربما رأيت شخصًا في المدخل.",
+          "tags": [
+            "witness:unknown",
+            "memory:vague"
+          ],
+          "suspicion": 11,
+          "reply": "ربما؟ لا تستخدم الذاكرة كستارة.",
+          "next": "q4",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "detective": "omar",
+      "text": "الكاميرا أظهرت شخصًا يدخل يشبهك. هل هو أنت؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا أعرف. الصورة غير واضحة.",
+          "tags": [
+            "camera:deny"
+          ],
+          "suspicion": 13,
+          "reply": "أنا لم أسألك عن جودة الصورة. سألتك إن كنت أنت.",
+          "next": "q5",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "نعم. كنت هناك.",
+          "tags": [
+            "camera:admit",
+            "location:building"
+          ],
+          "suspicion": 1,
+          "reply": "أفضل من أن تجعلني أكتشفها بنفسي.",
+          "next": "q5",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "قد يكون أنا، لا أتذكر.",
+          "tags": [
+            "camera:uncertain"
+          ],
+          "suspicion": 8,
+          "reply": "أنت تتذكر أنك كنت هناك، لكن لا تتذكر نفسك؟",
+          "next": "q5",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "detective": "omar",
+      "text": "ما علاقتك بمازن؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "مجرد معرفة قديمة.",
+          "tags": [
+            "relation:acquaintance"
+          ],
+          "suspicion": 5,
+          "reply": "مجرد معرفة. سنرى إن كانت كذلك فعلًا.",
+          "next": "q6",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "كان بيننا خلاف.",
+          "tags": [
+            "relation:conflict"
+          ],
+          "suspicion": 8,
+          "reply": "الآن أصبح وجودك في المبنى أكثر إثارة للاهتمام.",
+          "next": "q6",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "كنا أصدقاء، لكن الأمور تغيرت.",
+          "tags": [
+            "relation:friend",
+            "relation:conflict"
+          ],
+          "suspicion": 7,
+          "reply": "الأصدقاء السابقون يعرفون أين يضغطون.",
+          "next": "q6",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "detective": "omar",
+      "text": "لماذا كنت تريد مقابلته؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "كان بيننا موضوع مالي.",
+          "tags": [
+            "motive:money"
+          ],
+          "suspicion": 10,
+          "reply": "المال دافع ممتاز. أكمل.",
+          "next": "q7",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "كان بيننا خلاف شخصي.",
+          "tags": [
+            "motive:personal"
+          ],
+          "suspicion": 9,
+          "reply": "الخلاف الشخصي أسوأ من المال أحيانًا.",
+          "next": "q7",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا شيء مهم. أردت الحديث معه فقط.",
+          "tags": [
+            "motive:vague"
+          ],
+          "suspicion": 13,
+          "reply": "لا أحد يدخل مبنى مهجورًا ليلًا من أجل حديث عابر.",
+          "next": "q7",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "detective": "omar",
+      "text": "هل تشاجرتما؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا، تحدثنا فقط.",
+          "tags": [
+            "fight:deny"
+          ],
+          "suspicion": 12,
+          "reply": "إذًا لن يكون عندك مانع عندما أريك آثار الشجار.",
+          "next": "q8",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "ارتفعت أصواتنا قليلًا.",
+          "tags": [
+            "fight:verbal"
+          ],
+          "suspicion": 5,
+          "reply": "ارتفاع الأصوات لا يقتل أحدًا.",
+          "next": "q8",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "نعم، حصل شجار.",
+          "tags": [
+            "fight:admit"
+          ],
+          "suspicion": 3,
+          "reply": "هذا أفضل. على الأقل لدينا نقطة مشتركة.",
+          "next": "q8",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "detective": "omar",
+      "text": "أين حصل الشجار؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "في المدخل.",
+          "tags": [
+            "fight_location:lobby"
+          ],
+          "suspicion": 8,
+          "reply": "المدخل. سأحتفظ بهذه الإجابة.",
+          "next": "q9",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "في الطابق الثالث.",
+          "tags": [
+            "fight_location:third_floor"
+          ],
+          "suspicion": 2,
+          "reply": "الطابق الثالث. المكان نفسه الذي وُجد فيه مازن.",
+          "next": "q9",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا أتذكر المكان.",
+          "tags": [
+            "fight_location:vague"
+          ],
+          "suspicion": 12,
+          "reply": "نسيان المكان بعد شجار؟ غير مقنع.",
+          "next": "q9",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "detective": "omar",
+      "text": "متى رأيت مازن آخر مرة وهو حي؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "حوالي 11:25.",
+          "tags": [
+            "last_seen:1125"
+          ],
+          "suspicion": 2,
+          "reply": "11:25. هذا يضعك داخل نافذة الوفاة.",
+          "next": "q10",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "قبل منتصف الليل بقليل.",
+          "tags": [
+            "last_seen:late",
+            "time:vague"
+          ],
+          "suspicion": 9,
+          "reply": "قبل منتصف الليل بقليل لا تساعدني.",
+          "next": "q10",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لم أره أصلًا.",
+          "tags": [
+            "met:deny",
+            "last_seen:deny"
+          ],
+          "suspicion": 17,
+          "reply": "إذًا سنعود إلى تسجيل الكاميرا.",
+          "next": "q10",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "detective": "omar",
+      "text": "هل لمسته في تلك الليلة؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "صافحته فقط.",
+          "tags": [
+            "contact:minor"
+          ],
+          "suspicion": 4,
+          "reply": "صافحته. مفهوم.",
+          "next": "q11",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "دفعته أثناء الشجار.",
+          "tags": [
+            "contact:push",
+            "action:push"
+          ],
+          "suspicion": 2,
+          "reply": "أخيرًا وصلنا إلى شيء حقيقي.",
+          "next": "q11",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا.",
+          "tags": [
+            "contact:deny"
+          ],
+          "suspicion": 15,
+          "reply": "لا؟ هذا الجواب تحديدًا سأراجعه.",
+          "next": "q11",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "detective": "omar",
+      "text": "لماذا دفعته؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لأنه اقترب مني وهددني.",
+          "tags": [
+            "push:reaction",
+            "motive:defense"
+          ],
+          "suspicion": 2,
+          "reply": "دفاع عن النفس. نقطة مهمة.",
+          "next": "q12",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "كنت غاضبًا منه.",
+          "tags": [
+            "push:anger"
+          ],
+          "suspicion": 7,
+          "reply": "الغضب يجعل الناس يفعلون أشياء لا يقصدونها.",
+          "next": "q12",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لم أدفعه.",
+          "tags": [
+            "action:push_denied"
+          ],
+          "suspicion": 16,
+          "reply": "إذًا لماذا توجد آثار على ملابسك وملابسه؟",
+          "next": "q12",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "detective": "omar",
+      "text": "هل كنت تعرف أن خلفه درجًا؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نعم، بالطبع.",
+          "tags": [
+            "stairs:known"
+          ],
+          "suspicion": 6,
+          "reply": "إذًا كنت تعرف إلى أين يمكن أن يسقط.",
+          "next": "q13",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "كنت أعرف بوجود الدرج، لكنني لم أفكر فيه وقتها.",
+          "tags": [
+            "stairs:known",
+            "intent:no_harm"
+          ],
+          "suspicion": 2,
+          "reply": "هذا فرق مهم.",
+          "next": "q13",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لم أكن أفكر في أي شيء.",
+          "tags": [
+            "state:panic"
+          ],
+          "suspicion": 4,
+          "reply": "أحيانًا تكون لحظة واحدة كافية لتدمير حياة كاملة.",
+          "next": "q13",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "detective": "omar",
+      "text": "بعد أن دفعته، ماذا حدث؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "تراجع وسقط.",
+          "tags": [
+            "fall:accident"
+          ],
+          "suspicion": 0,
+          "reply": "تراجع وسقط. هذه رواية تحتاج إلى أكثر من كلمة.",
+          "next": "q14",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "ابتعدت عنه ولم أرَ ما حدث.",
+          "tags": [
+            "fall:deny_knowledge"
+          ],
+          "suspicion": 11,
+          "reply": "كنت على بعد خطوة منه، ولم ترَ شيئًا؟",
+          "next": "q14",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا أعرف. كل شيء حدث بسرعة.",
+          "tags": [
+            "fall:vague",
+            "state:panic"
+          ],
+          "suspicion": 7,
+          "reply": "السرعة لا تمحو ما حدث.",
+          "next": "q14",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "detective": "omar",
+      "text": "هل تأكدت من أنه مات؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نعم، اقتربت منه.",
+          "tags": [
+            "body:checked"
+          ],
+          "suspicion": 3,
+          "reply": "إذًا رأيته بعد السقوط.",
+          "next": "q15",
+          "effects": {
+            "state": {
+              "secret_level": 2,
+              "secret_revealed": true
+            }
+          }
+        },
+        {
+          "id": "b",
+          "text": "لا، هربت فورًا.",
+          "tags": [
+            "body:fled"
+          ],
+          "suspicion": 9,
+          "reply": "هربت قبل أن تعرف إن كان حيًا. لماذا؟",
+          "next": "q15",
+          "effects": {
+            "state": {
+              "secret_level": 0,
+              "secret_revealed": false
+            }
+          }
+        },
+        {
+          "id": "c",
+          "text": "لم أقترب منه.",
+          "tags": [
+            "body:deny"
+          ],
+          "suspicion": 12,
+          "reply": "حسنًا. هذا يتعارض مع شيء وجدناه.",
+          "next": "q15",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "detective": "omar",
+      "text": "لماذا لم تتصل بالإسعاف؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "أصبت بالذعر ولم أفكر.",
+          "tags": [
+            "after:panic",
+            "intent:no_harm"
+          ],
+          "suspicion": 3,
+          "reply": "الذعر مفهوم. الهروب أقل فهمًا.",
+          "next": "q16",
+          "effects": {
+            "state": {
+              "secret_level": 3,
+              "secret_revealed": true
+            }
+          }
+        },
+        {
+          "id": "b",
+          "text": "كنت أخشى أن أُتهم بقتله.",
+          "tags": [
+            "after:fear",
+            "guilt:hinted"
+          ],
+          "suspicion": 5,
+          "reply": "لأنك كنت تعرف أن وجودك سيضعك في الصورة.",
+          "next": "q16",
+          "effects": {
+            "state": {
+              "secret_level": 3,
+              "secret_revealed": true
+            }
+          }
+        },
+        {
+          "id": "c",
+          "text": "لم أعرف أنه مات.",
+          "tags": [
+            "after:deny_death"
+          ],
+          "suspicion": 12,
+          "reply": "وأنت الآن تعرف أنه مات. كيف عرفت؟",
+          "next": "q16",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "detective": "omar",
+      "text": "أين كان هاتفك أثناء الشجار؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "في جيبي.",
+          "tags": [
+            "phone:pocket"
+          ],
+          "suspicion": 2,
+          "reply": "إذًا يجب أن يكون معك طوال الوقت.",
+          "next": "q17",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "لا أتذكر.",
+          "tags": [
+            "phone:vague"
+          ],
+          "suspicion": 8,
+          "reply": "تذكّر. هاتفك مهم هنا.",
+          "next": "q17",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "تركته في السيارة.",
+          "tags": [
+            "phone:car"
+          ],
+          "suspicion": 5,
+          "reply": "سنتحقق من السيارة.",
+          "next": "q17",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "detective": "omar",
+      "text": "هاتفك كان في وضع الطيران بين 11:12 و11:39. لماذا؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "البطارية كانت ضعيفة.",
+          "tags": [
+            "phone:airplane",
+            "phone:battery"
+          ],
+          "suspicion": 7,
+          "reply": "وضع الطيران لا يحل مشكلة البطارية بهذه الطريقة.",
+          "next": "q18",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "فعلته لأنني لم أرد أن يزعجني أحد.",
+          "tags": [
+            "phone:airplane",
+            "phone:intentional"
+          ],
+          "suspicion": 5,
+          "reply": "وفي نفس الفترة تقريبًا مات مازن.",
+          "next": "q18",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا أتذكر أنني فعلته.",
+          "tags": [
+            "phone:airplane",
+            "memory:vague"
+          ],
+          "suspicion": 10,
+          "reply": "هاتفك يتذكر أكثر منك.",
+          "next": "q18",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "detective": "omar",
+      "text": "هل أخذت هاتف مازن بعد سقوطه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا.",
+          "tags": [
+            "phone_mazen:deny"
+          ],
+          "suspicion": 8,
+          "reply": "سنرى.",
+          "next": "q19",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "لمسته فقط لأتأكد من أنه يعمل.",
+          "tags": [
+            "phone_mazen:touch"
+          ],
+          "suspicion": 4,
+          "reply": "هذا يعني أن آثارك قد تكون عليه.",
+          "next": "q19",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "أخذته للحظات ثم أعدته.",
+          "tags": [
+            "phone_mazen:taken"
+          ],
+          "suspicion": 9,
+          "reply": "لماذا تأخذ هاتف رجل يحتضر؟",
+          "next": "q19",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "detective": "omar",
+      "text": "كانت هناك رسالة مفتوحة على هاتف مازن قبل وفاته. هل تعرف محتواها؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا.",
+          "tags": [
+            "message:deny"
+          ],
+          "suspicion": 7,
+          "reply": "إذًا لا تعرف شيئًا عنها.",
+          "next": "q20",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "ربما كانت الرسالة التي أرسلها لي.",
+          "tags": [
+            "message:admit"
+          ],
+          "suspicion": 3,
+          "reply": "إذًا كنت على تواصل معه قبل اللقاء.",
+          "next": "q20",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "كانت رسالة تخص الخلاف بيننا.",
+          "tags": [
+            "message:conflict"
+          ],
+          "suspicion": 5,
+          "reply": "هذا يفسر سبب اللقاء أكثر.",
+          "next": "q20",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "detective": "omar",
+      "text": "هل أرسلت له أي تهديد قبل الحادثة؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا.",
+          "tags": [
+            "threat:deny"
+          ],
+          "suspicion": 6,
+          "reply": "سأتحقق من هاتفه.",
+          "next": "q21",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "قلت له كلامًا غاضبًا، لكن لم أهدده.",
+          "tags": [
+            "threat:verbal"
+          ],
+          "suspicion": 5,
+          "reply": "الغضب لا يصبح تهديدًا إلا عندما تكتبه أو تقوله بطريقة واضحة.",
+          "next": "q21",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "قلت له: ستندم على ما فعلته.",
+          "tags": [
+            "threat:ambiguous"
+          ],
+          "suspicion": 11,
+          "reply": "هذه الجملة ستبدو سيئة جدًا في التقرير.",
+          "next": "q21",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "detective": "omar",
+      "text": "آثار أصابعك موجودة على درابزين الدرج. تفسيرك؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "طبيعي، لمسته وأنا أصعد.",
+          "tags": [
+            "fingerprint:normal"
+          ],
+          "suspicion": 2,
+          "reply": "منطقي.",
+          "next": "q22",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "ربما لمست الدرج بعد سقوطه.",
+          "tags": [
+            "fingerprint:after_fall"
+          ],
+          "suspicion": 4,
+          "reply": "وهذا يعني أنك كنت هناك بعد السقوط.",
+          "next": "q22",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا أعرف كيف وصلت بصماتي إليه.",
+          "tags": [
+            "fingerprint:deny"
+          ],
+          "suspicion": 11,
+          "reply": "لا تقل لا أعرف عندما تكون الإجابة أمامك.",
+          "next": "q22",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "detective": "omar",
+      "text": "وجدنا خيطًا من قماش يشبه قماش قميصك على يد مازن. هل تشاجرتما جسديًا؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نعم، ربما أمسك بقميصي.",
+          "tags": [
+            "clothing:contact",
+            "fight:physical"
+          ],
+          "suspicion": 2,
+          "reply": "إذًا التمزق ليس مصادفة.",
+          "next": "q23",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "لا، لم يحدث أي احتكاك.",
+          "tags": [
+            "clothing:deny"
+          ],
+          "suspicion": 14,
+          "reply": "أنت تجعل الأدلة تتحدث بدلًا منك.",
+          "next": "q23",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "أمسكني للحظة ثم ابتعد.",
+          "tags": [
+            "clothing:contact",
+            "fight:physical"
+          ],
+          "suspicion": 3,
+          "reply": "وهذا يطابق الأثر الموجود.",
+          "next": "q23",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "detective": "omar",
+      "text": "لماذا قميصك ممزق من عند الكتف؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "حدث ذلك في الشجار.",
+          "tags": [
+            "clothing:damage",
+            "fight:physical"
+          ],
+          "suspicion": 1,
+          "reply": "أخيرًا بدأت روايتك تتطابق مع الأدلة.",
+          "next": "q24",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "كان ممزقًا قبل أن أصل.",
+          "tags": [
+            "clothing:old_damage"
+          ],
+          "suspicion": 8,
+          "reply": "يمكننا فحص الألياف وتحديد ذلك.",
+          "next": "q24",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا أعرف.",
+          "tags": [
+            "clothing:vague"
+          ],
+          "suspicion": 10,
+          "reply": "مرة أخرى: لا تعرف.",
+          "next": "q24",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "detective": "omar",
+      "text": "هل كان مازن واقفًا على حافة الدرج عندما دفعته؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "كان قريبًا من الدرج، نعم.",
+          "tags": [
+            "stairs:near",
+            "push:dangerous_position"
+          ],
+          "suspicion": 4,
+          "reply": "قريب من الدرج. هذا يغير وزن المسألة.",
+          "next": "q25",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "لا، كان بعيدًا عنه.",
+          "tags": [
+            "stairs:far"
+          ],
+          "suspicion": 8,
+          "reply": "سنقارن ذلك بمكان جسده.",
+          "next": "q25",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا أتذكر.",
+          "tags": [
+            "stairs:vague"
+          ],
+          "suspicion": 10,
+          "reply": "أنت تتذكر أنك دفعته، لكنك لا تتذكر أين.",
+          "next": "q25",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "detective": "omar",
+      "text": "هل توقعت أن يؤدي دفعك له إلى موته؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا، أبدًا.",
+          "tags": [
+            "intent:no_kill",
+            "intent:no_harm"
+          ],
+          "suspicion": -3,
+          "reply": "هذا جواب مهم. لكن النية لا تلغي الفعل.",
+          "next": "q26",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "كنت غاضبًا ولم أفكر.",
+          "tags": [
+            "intent:reckless"
+          ],
+          "suspicion": 4,
+          "reply": "وهذه ربما تكون المشكلة كلها.",
+          "next": "q26",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا أريد الإجابة.",
+          "tags": [
+            "refuse:intent"
+          ],
+          "suspicion": 9,
+          "reply": "الصمت لا يغير ما حدث.",
+          "next": "q26",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "detective": "omar",
+      "text": "هل أردت أن يموت مازن؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا.",
+          "tags": [
+            "intent:no_kill",
+            "intent:clear"
+          ],
+          "suspicion": -5,
+          "reply": "إجابة مباشرة.",
+          "next": "q27",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "كنت أريد فقط أن يتوقف عن تهديدي.",
+          "tags": [
+            "intent:self_defense"
+          ],
+          "suspicion": 0,
+          "reply": "هذا يختلف عن الرغبة في قتله.",
+          "next": "q27",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا أعرف ماذا كنت أريد وقتها.",
+          "tags": [
+            "intent:uncertain"
+          ],
+          "suspicion": 7,
+          "reply": "ربما أنت لا تعرف. لكن جسد مازن يعرف نتيجة ما فعلت.",
+          "next": "q27",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q27",
+      "detective": "omar",
+      "text": "بعد سقوطه، لماذا لم تطلب المساعدة؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "خفت على نفسي.",
+          "tags": [
+            "after:self_preservation"
+          ],
+          "suspicion": 5,
+          "reply": "خوفك مفهوم. قرارك ليس كذلك.",
+          "next": "q28",
+          "effects": {
+            "state": {
+              "secret_level": 3,
+              "secret_revealed": true
+            }
+          }
+        },
+        {
+          "id": "b",
+          "text": "كنت في حالة صدمة.",
+          "tags": [
+            "after:shock"
+          ],
+          "suspicion": 1,
+          "reply": "الصدمة تجعل الإنسان يتصرف بشكل غير منطقي.",
+          "next": "q28",
+          "effects": {
+            "state": {
+              "secret_level": 3,
+              "secret_revealed": true
+            }
+          }
+        },
+        {
+          "id": "c",
+          "text": "كنت أظن أنه مات فورًا.",
+          "tags": [
+            "after:assumed_dead"
+          ],
+          "suspicion": 4,
+          "reply": "وافترضت أنك تستطيع المغادرة بعد ذلك؟",
+          "next": "q28",
+          "effects": {
+            "state": {
+              "secret_level": 3,
+              "secret_revealed": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "q28",
+      "detective": "omar",
+      "text": "هل حاولت إخفاء أي دليل قبل مغادرة المكان؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا.",
+          "tags": [
+            "evidence:none"
+          ],
+          "suspicion": 2,
+          "reply": "سنرى.",
+          "next": "q29",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "أخذت هاتفي فقط.",
+          "tags": [
+            "evidence:none",
+            "phone:removed"
+          ],
+          "suspicion": 3,
+          "reply": "طبيعي.",
+          "next": "q29",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "مسحت شيئًا من المكان.",
+          "tags": [
+            "evidence:tampered"
+          ],
+          "suspicion": 15,
+          "reply": "ما الذي مسحته؟",
+          "next": "q29",
+          "effects": {
+            "state": {
+              "secret_level": 4,
+              "secret_revealed": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "q29",
+      "detective": "omar",
+      "text": "الكاميرا انقطعت لمدة سبع دقائق. هل تعرف لماذا؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا.",
+          "tags": [
+            "camera:unknown"
+          ],
+          "suspicion": 4,
+          "reply": "مقبول حتى الآن.",
+          "next": "q30",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "ربما كان هناك عطل.",
+          "tags": [
+            "camera:theory"
+          ],
+          "suspicion": 5,
+          "reply": "هذا ما قاله الفني أيضًا.",
+          "next": "q30",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لم أقترب من الكاميرا.",
+          "tags": [
+            "camera:deny_access"
+          ],
+          "suspicion": 8,
+          "reply": "لم أسألك إن اقتربت منها.",
+          "next": "q30",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q30",
+      "detective": "omar",
+      "text": "هل تعرف مكان لوحة الكهرباء في المبنى؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا.",
+          "tags": [
+            "electricity:deny"
+          ],
+          "suspicion": 4,
+          "reply": "سنراجع بصمات اللوحة.",
+          "next": "q31",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "نعم، قرب المدخل.",
+          "tags": [
+            "electricity:known"
+          ],
+          "suspicion": 3,
+          "reply": "معلومة بسيطة، لكنها ستُفحص.",
+          "next": "q31",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "رأيتها فقط عندما دخلت.",
+          "tags": [
+            "electricity:known"
+          ],
+          "suspicion": 2,
+          "reply": "حسنًا.",
+          "next": "q31",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q31",
+      "detective": "omar",
+      "text": "آخر شخص اتصل بمازن قبل موته كان أنت. ماذا ستقول؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "اتصلت به لأحدد موعد اللقاء.",
+          "tags": [
+            "call:meeting"
+          ],
+          "suspicion": 2,
+          "reply": "وهذا يثبت أنك خططت لمقابلته.",
+          "next": "q32",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "اتصلت به بسبب خلافنا.",
+          "tags": [
+            "call:conflict"
+          ],
+          "suspicion": 5,
+          "reply": "الخلاف يتكرر في كل إجابة.",
+          "next": "q32",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لم أتصل به.",
+          "tags": [
+            "call:deny"
+          ],
+          "suspicion": 16,
+          "reply": "سجل الهاتف لا يوافقك.",
+          "next": "q32",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q32",
+      "detective": "omar",
+      "text": "هل كنت غاضبًا عندما وصلت إليه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نعم، كنت غاضبًا.",
+          "tags": [
+            "emotion:anger"
+          ],
+          "suspicion": 4,
+          "reply": "الغضب موجود. القصد من عدمه هو السؤال.",
+          "next": "q33",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "كنت هادئًا.",
+          "tags": [
+            "emotion:calm"
+          ],
+          "suspicion": 6,
+          "reply": "والكاميرا تُظهر غير ذلك قليلًا.",
+          "next": "q33",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "كنت متوترًا فقط.",
+          "tags": [
+            "emotion:stress"
+          ],
+          "suspicion": 2,
+          "reply": "التوتر مفهوم.",
+          "next": "q33",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q33",
+      "detective": "omar",
+      "text": "هل قال لك مازن شيئًا قبل أن يسقط؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "قال لي أن أبتعد عنه.",
+          "tags": [
+            "last_words:warning"
+          ],
+          "suspicion": 1,
+          "reply": "وهذا يتفق مع وجود شجار.",
+          "next": "q34",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "هددني بأنه سيدمر حياتي.",
+          "tags": [
+            "last_words:threat",
+            "motive:personal"
+          ],
+          "suspicion": 4,
+          "reply": "إذًا كان لديه سبب لتهديدك.",
+          "next": "q34",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا أتذكر.",
+          "tags": [
+            "last_words:vague"
+          ],
+          "suspicion": 8,
+          "reply": "هذه المرة أتفهم النسيان.",
+          "next": "q34",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q34",
+      "detective": "omar",
+      "text": "لو عاد بك الزمن إلى تلك اللحظة، هل كنت ستدفعه؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا.",
+          "tags": [
+            "regret:yes"
+          ],
+          "suspicion": -4,
+          "reply": "الندم سهل بعد أن تعرف النهاية.",
+          "next": "q35",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "كنت سأبتعد.",
+          "tags": [
+            "regret:yes",
+            "intent:no_harm"
+          ],
+          "suspicion": -3,
+          "reply": "لكن ذلك لم يحدث.",
+          "next": "q35",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا أعرف.",
+          "tags": [
+            "regret:uncertain"
+          ],
+          "suspicion": 5,
+          "reply": "ربما أنت لا تزال غاضبًا منه.",
+          "next": "q35",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q35",
+      "detective": "omar",
+      "text": "هل تشعر بالذنب؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نعم.",
+          "tags": [
+            "guilt:admit"
+          ],
+          "suspicion": -3,
+          "reply": "هذه أول إجابة صادقة عاطفيًا منك.",
+          "next": "q36",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "لا أعرف ماذا أشعر.",
+          "tags": [
+            "guilt:uncertain"
+          ],
+          "suspicion": 3,
+          "reply": "ربما لأنك تحاول النجاة قبل أن تسمح لنفسك بالشعور.",
+          "next": "q36",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا، لأنه كان خطأه.",
+          "tags": [
+            "guilt:deny"
+          ],
+          "suspicion": 8,
+          "reply": "حتى لو استفزك، هو الآن ميت.",
+          "next": "q36",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q36",
+      "detective": "omar",
+      "text": "هل تعتبر نفسك مسؤولًا عن موته؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "نعم، لأنني دفعته.",
+          "tags": [
+            "responsibility:admit",
+            "action:push"
+          ],
+          "suspicion": -8,
+          "reply": "هذه ليست إجابة شخص يحاول اختراع قصة.",
+          "next": "q37",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "جزئيًا فقط، لم أقصد أن يموت.",
+          "tags": [
+            "responsibility:partial",
+            "intent:no_kill"
+          ],
+          "suspicion": -5,
+          "reply": "الفرق بين القصد والنتيجة هو ما سيحدد مصيرك.",
+          "next": "q37",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا، هو الذي تسبب في سقوطه.",
+          "tags": [
+            "responsibility:deny"
+          ],
+          "suspicion": 10,
+          "reply": "إذًا لماذا كان دفعك آخر فعل جسدي حدث بينكما؟",
+          "next": "q37",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q37",
+      "detective": "omar",
+      "text": "لو قلت لك إن الطب الشرعي يرجح أن السقوط حدث بعد دفع مباشر، ماذا ستفعل؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "سأقول إنني دفعته، لكنني لم أرد قتله.",
+          "tags": [
+            "confession:partial",
+            "intent:no_kill"
+          ],
+          "suspicion": -12,
+          "reply": "أخيرًا قلتها بنفسك.",
+          "next": "q38",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "سأظل متمسكًا بأنني لم أفعل.",
+          "tags": [
+            "confession:deny"
+          ],
+          "suspicion": 12,
+          "reply": "حتى الآن؟ بعد كل هذا؟",
+          "next": "q38",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "سأطلب محاميًا.",
+          "tags": [
+            "legal:lawyer"
+          ],
+          "suspicion": 3,
+          "reply": "من حقك.",
+          "next": "q38",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q38",
+      "detective": "omar",
+      "text": "اسمعني جيدًا. هل كنت تريد قتل مازن؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "لا. أردت فقط أن يتوقف الشجار.",
+          "tags": [
+            "intent:no_kill",
+            "confession:partial"
+          ],
+          "suspicion": -10,
+          "reply": "إذًا لدينا فعل قاتل بلا نية قتل.",
+          "next": "q39",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "b",
+          "text": "لا أستطيع الإجابة.",
+          "tags": [
+            "refuse:intent"
+          ],
+          "suspicion": 7,
+          "reply": "الصمت هنا أثقل من أي كلمة.",
+          "next": "q39",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "نعم.",
+          "tags": [
+            "intent:murder"
+          ],
+          "suspicion": 30,
+          "reply": "إذًا تغيرت القضية بالكامل.",
+          "next": "q39",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q39",
+      "detective": "omar",
+      "text": "آخر فرصة. أخبرني بالضبط ماذا حدث في الدرج.",
+      "options": [
+        {
+          "id": "a",
+          "text": "تشاجرنا، دفعني، دفعته، فتراجع وسقط. لم أقصد قتله.",
+          "tags": [
+            "confession:full",
+            "intent:no_kill",
+            "action:push",
+            "fall:accident"
+          ],
+          "suspicion": -20,
+          "reply": "هذه أول مرة أسمع القصة كاملة دون أن تترك جزءًا في الظلام.",
+          "next": "q40",
+          "effects": {
+            "state": {
+              "secret_level": 4,
+              "secret_revealed": true
+            }
+          }
+        },
+        {
+          "id": "b",
+          "text": "تشاجرنا ثم سقط. لا أريد إضافة شيء.",
+          "tags": [
+            "confession:partial",
+            "action:push"
+          ],
+          "suspicion": -8,
+          "reply": "ناقص. لكنه أقرب للحقيقة من أي شيء قلته سابقًا.",
+          "next": "q40",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لم أقتله.",
+          "tags": [
+            "confession:deny"
+          ],
+          "suspicion": 15,
+          "reply": "لم أقل إنك قتلته. سألتك ماذا حدث.",
+          "next": "q40",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    },
+    {
+      "id": "q40",
+      "detective": "omar",
+      "text": "بعد كل ما قلته، هل تريد أن تضيف شيئًا قبل أن أقرر ما سيحدث لك؟",
+      "options": [
+        {
+          "id": "a",
+          "text": "أنا المسؤول عن دفعه، لكن موته لم يكن مقصودًا.",
+          "tags": [
+            "responsibility:admit",
+            "intent:no_kill",
+            "confession:full"
+          ],
+          "suspicion": -15,
+          "reply": "سأكتبها كما قلتها. المسؤولية لا تعني دائمًا نية القتل.",
+          "next": "END",
+          "effects": {
+            "state": {
+              "secret_level": 4,
+              "secret_revealed": true
+            }
+          }
+        },
+        {
+          "id": "b",
+          "text": "أريد محاميًا قبل أي كلمة أخرى.",
+          "tags": [
+            "legal:lawyer",
+            "cooperate:partial"
+          ],
+          "suspicion": 2,
+          "reply": "حسنًا. من هذه اللحظة لن أضغط عليك دون حضور محاميك.",
+          "next": "END",
+          "effects": {
+            "state": {}
+          }
+        },
+        {
+          "id": "c",
+          "text": "لا. انتهى كلامي.",
+          "tags": [
+            "closing:none"
+          ],
+          "suspicion": 4,
+          "reply": "إذًا انتهى الاستجواب. لكن القضية لم تنته.",
+          "next": "END",
+          "effects": {
+            "state": {}
+          }
+        }
+      ]
+    }
+  ],
+  "contradiction_rules": [
+    {
+      "tag_conflict": [
+        "met:deny",
+        "met:mazen"
+      ],
+      "confrontation_line": "قلت إنك لم ترَ مازن، ثم أكدت أنك كنت تقابله. اختر رواية واحدة.",
+      "suspicion_change": 24
+    },
+    {
+      "tag_conflict": [
+        "alone:yes",
+        "met:mazen"
+      ],
+      "confrontation_line": "قلت إنك كنت وحدك، والآن مازن يظهر في القصة. وحدك مع من إذًا؟",
+      "suspicion_change": 18
+    },
+    {
+      "tag_conflict": [
+        "fight:deny",
+        "fight:admit"
+      ],
+      "confrontation_line": "في البداية لم يكن هناك شجار، والآن تقول إنكما تشاجرتما. لماذا تغيّرت روايتك؟",
+      "suspicion_change": 22
+    },
+    {
+      "tag_conflict": [
+        "contact:deny",
+        "contact:push"
+      ],
+      "confrontation_line": "قلت إنك لم تلمسه، ثم اعترفت بأنك دفعته. أي إجابة أكتبها؟",
+      "suspicion_change": 28
+    },
+    {
+      "tag_conflict": [
+        "action:push_denied",
+        "action:push"
+      ],
+      "confrontation_line": "دفعتَه ثم أنكرت أنك دفعته. المشكلة ليست في الدليل، بل في سبب إنكارك.",
+      "suspicion_change": 30
+    },
+    {
+      "tag_conflict": [
+        "body:deny",
+        "body:checked"
+      ],
+      "confrontation_line": "قلت إنك لم تقترب منه، ثم قلت إنك فحصته. أنت تعرف أكثر مما تقول.",
+      "suspicion_change": 23
+    },
+    {
+      "tag_conflict": [
+        "phone_mazen:deny",
+        "phone_mazen:taken"
+      ],
+      "confrontation_line": "لم تلمس هاتفه، ثم أخذته للحظات. الهاتف لا ينسى.",
+      "suspicion_change": 25
+    },
+    {
+      "tag_conflict": [
+        "clothing:deny",
+        "clothing:contact"
+      ],
+      "confrontation_line": "لا احتكاك بينكما، ومع ذلك قميصك يحمل أثرًا من ملابسه. فسّر ذلك.",
+      "suspicion_change": 26
+    },
+    {
+      "tag_conflict": [
+        "emotion:calm",
+        "emotion:anger"
+      ],
+      "confrontation_line": "مرة كنت هادئًا، ومرة كنت غاضبًا. أيهما كان؟",
+      "suspicion_change": 17
+    },
+    {
+      "tag_conflict": [
+        "responsibility:deny",
+        "responsibility:admit"
+      ],
+      "confrontation_line": "مرة تقول إنك لست مسؤولًا، ثم تقول إنك دفعته. لا يمكنك الاحتفاظ بالروايتين.",
+      "suspicion_change": 25
+    },
+    {
+      "tag_conflict": [
+        "intent:no_kill",
+        "intent:murder"
+      ],
+      "confrontation_line": "قلت إنك لم ترد قتله، والآن تقول إنك أردت ذلك. هذه ليست تفصيلة صغيرة.",
+      "suspicion_change": 35
+    },
+    {
+      "tag_conflict": [
+        "phone:car",
+        "phone:pocket"
+      ],
+      "confrontation_line": "هاتفك كان في السيارة، ثم في جيبك. أيهما صحيح؟",
+      "suspicion_change": 19
+    },
+    {
+      "tag_conflict": [
+        "stairs:far",
+        "stairs:near"
+      ],
+      "confrontation_line": "قلت إنه كان بعيدًا عن الدرج، ثم قلت إنه كان على حافته. هذا يغيّر تفسير السقوط بالكامل.",
+      "suspicion_change": 21
+    },
+    {
+      "tag_conflict": [
+        "camera:deny",
+        "camera:admit"
+      ],
+      "confrontation_line": "الصورة لا تعرف الكذب. قلت إنك لست الشخص، ثم اعترفت أنك كنت هناك.",
+      "suspicion_change": 24
+    },
+    {
+      "tag_conflict": [
+        "threat:deny",
+        "threat:ambiguous"
+      ],
+      "confrontation_line": "لم تهدده، لكنك قلت له إنه سيندم. كلماتك ليست بريئة كما تحاول تصويرها.",
+      "suspicion_change": 18
+    },
+    {
+      "tag_conflict": [
+        "body:fled",
+        "body:checked"
+      ],
+      "confrontation_line": "قلت إنك هربت فورًا، ثم قلت إنك اقتربت منه بعد السقوط. إذًا بقيت هناك. لماذا؟",
+      "suspicion_change": 24
+    },
+    {
+      "tag_conflict": [
+        "after:panic",
+        "after:assumed_dead"
+      ],
+      "confrontation_line": "مرة قلت إنك كنت في صدمة، ومرة قلت إنك كنت متأكدًا أنه مات. أيهما حدث فعلًا؟",
+      "suspicion_change": 18
+    },
+    {
+      "tag_conflict": [
+        "evidence:none",
+        "evidence:tampered"
+      ],
+      "confrontation_line": "قلت إنك لم تلمس شيئًا، ثم اعترفت بأنك أخفيت أثرًا. ماذا كنت تحاول أن تخفي؟",
+      "suspicion_change": 28
+    }
+  ],
+  "endings": [
+    {
+      "ending_id": "perfect_lie",
+      "condition": {
+        "secret_revealed": false,
+        "suspicion_max": 40,
+        "contradictions_max": 0
+      },
+      "title": "السر بقي معك",
+      "stamp": "أُغلق مؤقتًا",
+      "text": "لم يستطع عمر إثبات أنك دفعت مازن، والأهم أنه لم يعرف أنك بقيت بعد سقوطه ثم غادرت دون طلب المساعدة. خرجت من الغرفة. الحقيقة الوحيدة التي بقيت خارج المحضر هي أنك تعرف بالضبط ماذا حدث في الدرج."
+    },
+    {
+      "ending_id": "secret_suspected",
+      "condition": {
+        "secret_revealed": false,
+        "suspicion_min": 41,
+        "suspicion_max": 80
+      },
+      "title": "هناك جزء مفقود",
+      "stamp": "مشتبه رئيسي",
+      "text": "عمر لا يستطيع إثبات السر، لكنه يشعر أن روايتك تتوقف في اللحظة التي بدأ فيها مازن يحتضر. «أنت تخفي شيئًا عن الدقائق الأخيرة.» لا يعرف الحقيقة بعد، لكنه لن يتركها."
+    },
+    {
+      "ending_id": "secret_discovered",
+      "condition": {
+        "secret_revealed": true,
+        "secret_level_min": 3,
+        "suspicion_max": 75,
+        "required_tags": [
+          "action:push",
+          "intent:no_kill"
+        ]
+      },
+      "title": "الحقيقة الثانية",
+      "stamp": "إحالة للتحقيق",
+      "text": "عرف عمر أنك دفعته دون نية قتله، لكنه اكتشف أيضًا أنك لم تطلب المساعدة فورًا. «الحادث شيء. وما فعلته بعد الحادث شيء آخر.» لم تعد القضية مجرد سقوط عرضي."
+    },
+    {
+      "ending_id": "accidental_truth",
+      "condition": {
+        "secret_revealed": true,
+        "secret_level_min": 4,
+        "suspicion_max": 55,
+        "required_tags": [
+          "confession:full",
+          "intent:no_kill",
+          "responsibility:admit"
+        ]
+      },
+      "title": "الحقيقة كاملة",
+      "stamp": "قتل غير متعمد",
+      "text": "قلت الحقيقة كاملة: تشاجرتما، دفعته، سقط، لم تقصد قتله، ثم بقيت لحظات وغادرت خوفًا من العواقب. عمر يغلق الملف ببطء. «القتل لم يكن مقصودًا. لكن هروبك بعده جزء من القضية.»"
+    },
+    {
+      "ending_id": "partial_confession",
+      "condition": {
+        "secret_revealed": true,
+        "secret_level_min": 2,
+        "suspicion_max": 85,
+        "required_tags": [
+          "confession:partial",
+          "action:push"
+        ]
+      },
+      "title": "نصف الحقيقة",
+      "stamp": "استدعاء رسمي",
+      "text": "اعترفت بالدفع، وكشفت جزءًا من لحظات ما بعد السقوط، لكنك لم تقل كل شيء. عمر يعرف أن هناك فجوة في قصتك، والفجوة الآن لها معنى."
+    },
+    {
+      "ending_id": "lawyer_silence",
+      "condition": {
+        "suspicion_max": 65,
+        "required_tags": [
+          "legal:lawyer"
+        ]
+      },
+      "title": "الصمت القانوني",
+      "stamp": "التحقيق مستمر",
+      "text": "طلبت محاميًا قبل أن تكشف المزيد. عمر لم يعتبر ذلك اعترافًا، لكنه يعرف أن هناك أشياء لم تقلها. التحقيق سيستمر بالأدلة."
+    },
+    {
+      "ending_id": "guilt_without_proof",
+      "condition": {
+        "suspicion_max": 90,
+        "required_tags": [
+          "guilt:admit"
+        ]
+      },
+      "title": "ذنب بلا اعتراف",
+      "stamp": "مشتبه رئيسي",
+      "text": "لم تعط عمر اعترافًا كاملًا، لكن شعورك بالذنب ظهر في إجاباتك. لا يزال السر غير مكتمل أمامه، ولذلك سيبحث عن الدليل الذي يربطك بالدقائق الأخيرة."
+    },
+    {
+      "ending_id": "evidence_collapse",
+      "condition": {
+        "suspicion_max": 110,
+        "required_tags": [
+          "camera:admit",
+          "action:push"
+        ]
+      },
+      "title": "الأدلة تتكلم",
+      "stamp": "احتجاز للتحقيق",
+      "text": "الكاميرا، آثار الشجار، البصمات وسجل الاتصال تضعك في المكان والوقت نفسيهما. عمر لم يعد يحتاج إلى تخمين وجودك. السؤال الآن هو ماذا فعلت بعد السقوط."
+    },
+    {
+      "ending_id": "false_murder",
+      "condition": {
+        "suspicion_max": 150,
+        "required_tags": [
+          "intent:murder"
+        ]
+      },
+      "title": "حين قتلتك كلمتك",
+      "stamp": "جريمة قتل عمد",
+      "text": "قلت إنك أردت موته. عندها لم يعد عمر مضطرًا لتفسير الحادث كقتل غير متعمد. كلمة واحدة غيّرت القضية كلها."
+    },
+    {
+      "ending_id": "contradiction_trap",
+      "condition": {
+        "suspicion_max": 125,
+        "contradictions_max": 5
+      },
+      "title": "سقطت في روايتك",
+      "stamp": "توقيف",
+      "text": "كل محاولة لتغيير روايتك صنعت تناقضًا جديدًا. عمر لم يحصل على اعتراف واضح، لكنه حصل على شيء آخر: رواية لا يمكن الوثوق بها."
+    },
+    {
+      "ending_id": "truth_too_late",
+      "condition": {
+        "secret_revealed": true,
+        "secret_level_min": 4,
+        "suspicion_max": 120,
+        "required_tags": [
+          "confession:full"
+        ]
+      },
+      "title": "الحقيقة بعد فوات الأوان",
+      "stamp": "إحالة للنيابة",
+      "text": "اعترفت بكل شيء، بما في ذلك أنك غادرت دون طلب المساعدة. عمر يصدق أن القتل لم يكن مقصودًا، لكنه لا يستطيع تجاهل قرارك بعد السقوط."
+    }
+  ],
+  "initial_state": {
+    "suspicion": 0,
+    "contradictions": 0,
+    "secret_revealed": false,
+    "secret_level": 0
+  },
+  "secret_rules": [
+    {
+      "secret_id": "left_without_calling_help",
+      "trigger_tags": [
+        "after:panic",
+        "after:fear",
+        "after:self_preservation",
+        "after:shock",
+        "after:assumed_dead"
+      ],
+      "reveal_level": 3,
+      "reveal_line": "عمر يتوقف قليلًا. «إذًا أنت لم تهرب فور سقوطه فقط... أنت كنت تعرف أنه يحتاج مساعدة ولم تطلبها.»",
+      "suspicion_change": 8
+    },
+    {
+      "secret_id": "left_without_calling_help",
+      "trigger_tags": [
+        "evidence:tampered"
+      ],
+      "reveal_level": 4,
+      "reveal_line": "«المشكلة ليست أنك دفعته فقط. المشكلة أنك بقيت بعد سقوطه ثم غادرت دون طلب المساعدة.»",
+      "suspicion_change": 12
+    },
+    {
+      "secret_id": "left_without_calling_help",
+      "trigger_tags": [
+        "confession:full"
+      ],
+      "reveal_level": 4,
+      "reveal_line": "«الآن صارت الصورة كاملة. دفعته، رأيت ما حدث، ثم قررت المغادرة بدل طلب المساعدة.»",
+      "suspicion_change": 0
+    }
+  ]
+}
